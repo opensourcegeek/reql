@@ -55,7 +55,7 @@ pub fn connect<A: IntoArg>(client: &Client, args: A) -> Result<Connection>
     conn.set_latency()?;
     let config = r2d2::Config::builder()
         .pool_size(144)
-        .idle_timeout(Some(Duration::from_secs(30)))
+        .idle_timeout(Some(Duration::from_secs(120)))
         .max_lifetime(Some(Duration::from_secs(150)))
         .min_idle(Some(5))
         .connection_timeout(Duration::from_secs(3))

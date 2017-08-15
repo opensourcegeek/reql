@@ -58,7 +58,7 @@ pub fn connect<A: IntoArg>(client: &Client, args: A) -> Result<Connection>
         .idle_timeout(Some(Duration::from_secs(120)))
         .max_lifetime(Some(Duration::from_secs(150)))
         .min_idle(Some(5))
-        .connection_timeout(Duration::from_secs(3))
+        .connection_timeout(Duration::from_secs(90))
         .build();
     let session = SessionManager(conn);
     let r2d2 = r2d2::Pool::new(config, session)
